@@ -82,9 +82,13 @@ const handleHold = function () {
             win.innerText = winner;
             modal.style.visibility = 'visible';
         }
-        
+        count = 2;
+        if (left.classList.contains('active')) {
+        left.classList.remove('active');
+        right.classList.add('active'); 
+        }
     }
-    if (count  === 2) {
+    else if(count  === 2) {
         player2Score = Number(result2.innerText);
         player2Score = Number(current2.innerText) + player2Score;
         result2.innerText = player2Score;
@@ -93,6 +97,11 @@ const handleHold = function () {
             winner = 'Player 2'
             win.innerText = winner;
             modal.style.visibility = 'visible';
+        }
+        count = 1;
+        if (right.classList.contains('active')) {
+            right.classList.remove('active');
+            left.classList.add('active');
         }
     }
 }
